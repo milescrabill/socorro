@@ -4,7 +4,7 @@ export PYTHON=${PYTHON:-"python"}
 export VIRTUAL_ENV=${VIRTUAL_ENV:-"$PWD/socorro-virtualenv"}
 export BUILD_TYPE=${BUILD_TYPE:-"tar"}
 export BUILD_DIR=${BUILD_DIR:-"build/$BUILD_TYPE/socorro"}
-export BUILD_VERSION="$(git describe --tags | cut -d'-' -f1).$(date +%s)"
+export BUILD_VERSION="$(git describe --abbrev=0 --tags master)-$(git log --tags -n 1 --format="%h")"
 
 export JAVA_HOME=${JAVA_HOME:-"/usr/lib/jvm/jre-openjdk"}
 
